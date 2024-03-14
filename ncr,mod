@@ -1,0 +1,44 @@
+
+///////////////   POW     ////////////////
+
+ll POW(ll a, ll b, ll mod1)
+{
+    a %= mod1;
+    ll r = 1;
+    for(ll i = b; i > 0; i >>= 1)
+    {
+        if(i & 1)
+            r = (r * a) % mod1;
+        a = (a * a) % mod1;
+    }
+    return r;
+}
+
+
+
+
+/////////////  Factorial //////////////
+
+void init(){
+  f[0] = 1;
+  for(ll  i = 1; i < N; i++)
+  {
+      f[i] = (f[i - 1] * i) % mod1;
+  }
+}
+
+
+//////////////  MOD ADD    //////////////
+
+ll modadd(ll a, ll b) {a = a % p; b = b % p; return (((a + b) % p) + p) % p;}
+
+
+/////////////   NCR    ////////////////
+
+
+ll nCr(ll n, ll r)
+{
+    if(n < r)
+        return 0;
+    return f[n] * POW(f[n - r] * f[r], mod1 - 2, mod1) % mod1;
+}
