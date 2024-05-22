@@ -1,0 +1,14 @@
+          double l=0,h=1e8,mid;
+           double ans=0;
+           int a=60;
+           while(a--) {
+               mid=(l+h)/2;
+               if(f()) {
+                   ans=mid;
+                   h=mid-1;
+               }else{
+                   l=mid+1;
+               }
+           }
+
+return ans;
